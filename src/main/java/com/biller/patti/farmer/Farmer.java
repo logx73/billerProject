@@ -20,7 +20,7 @@ public class Farmer {
     private Long farmerId;
     @Column(name = "firstName")
     private String firstName;
-    private String LastName;
+    private String lastName;
     private String mobile;
     private String email;
     private String address;
