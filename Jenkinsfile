@@ -16,13 +16,14 @@ pipeline{
                 dir("billerProject"){
                     sh "mvn clean compile"
                 }
-
             }
         }
         stage("Test"){
             stage{
-                dir("billerProject"){
-                    sh "mvn test"
+                steps{
+                    dir("billerProject"){
+                     sh "mvn test"
+                    }
                 }
             }
         }
