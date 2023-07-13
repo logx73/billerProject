@@ -59,31 +59,44 @@ public class FarmerDao {
         jdbcTemplate.update(sql, new MapSqlParameterSource(params));
     }
 
-    public void getFarmerByLastName(){
+    public Farmer saveFarmer(Farmer farmer){
         try{
-            List<Farmer> farmer=farmerRepository.findByLastName("gadiya");
-            System.out.println(farmer);
-        }catch (Exception ex){
+            Farmer farmer1 = farmerRepository.save(farmer);
+            return farmer1;
+        }catch(Exception ex){
             System.out.println(ex.getMessage());
         }
+        return null;
     }
 
-    public void getFarmerByFirstName(){
+    public List<Farmer> getFarmerByLastName(String lastName){
         try{
-            List<Farmer> farmer=farmerRepository.findByFirstName("lokesh");
-            System.out.println(farmer);
+            List<Farmer> farmer=farmerRepository.findByLastName(lastName);
+            return farmer;
         }catch (Exception ex){
             System.out.println(ex.getMessage());
         }
+        return null;
     }
 
-    public void getFarmerById(){
+    public List<Farmer> getFarmerByFirstName(String name){
         try{
-            Farmer farmer=farmerRepository.findByFarmerId(101L);
-            System.out.println(farmer);
+            List<Farmer> farmer=farmerRepository.findByFirstName(name);
+            return farmer;
         }catch (Exception ex){
             System.out.println(ex.getMessage());
         }
+        return null;
+    }
+
+    public Farmer getFarmerById(Long id){
+        try{
+            Farmer farmer=farmerRepository.findByFarmerId(id);
+            return farmer;
+        }catch (Exception ex){
+            System.out.println(ex.getMessage());
+        }
+        return null;
     }
 
 }
