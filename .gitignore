@@ -31,3 +31,51 @@ build/
 
 ### VS Code ###
 .vscode/
+
+
+### Angular ###
+
+# dependencies
+/Frontend/frtendAngularBiller/node_modules
+
+# compiled output
+Frontend/frtendAngularBiller/dist
+Frontend/frtendAngularBiller/tmp
+Frontend/frtendAngularBiller/out-tsc
+# Only exists if Bazel was run
+Frontend/frtendAngularBiller/bazel-out
+
+# profiling files
+Frontend/frtendAngularBiller/chrome-profiler-events*.json
+
+# IDEs and editors
+Frontend/frtendAngularBiller/.idea
+Frontend/frtendAngularBiller/.project
+Frontend/frtendAngularBiller/.classpath
+Frontend/frtendAngularBiller/.c9/
+Frontend/frtendAngularBiller/*.launch
+Frontend/frtendAngularBiller/.settings/
+Frontend/frtendAngularBiller/*.sublime-workspace
+
+# IDE - VSCode
+Frontend/frtendAngularBiller/.vscode/*
+Frontend/frtendAngularBiller/!.vscode/settings.json
+Frontend/frtendAngularBiller/!.vscode/tasks.json
+Frontend/frtendAngularBiller/!.vscode/launch.json
+Frontend/frtendAngularBiller/!.vscode/extensions.json
+Frontend/frtendAngularBiller/.history/*
+
+# misc
+Frontend/frtendAngularBiller/.angular/cache
+Frontend/frtendAngularBiller/.sass-cache
+Frontend/frtendAngularBiller/connect.lock
+Frontend/frtendAngularBiller/coverage
+Frontend/frtendAngularBiller/libpeerconnection.log
+Frontend/frtendAngularBiller/npm-debug.log
+Frontend/frtendAngularBiller/yarn-error.log
+Frontend/frtendAngularBiller/testem.log
+Frontend/frtendAngularBiller/typings
+
+# System Files
+Frontend/frtendAngularBiller/.DS_Store
+Frontend/frtendAngularBiller/Thumbs.db

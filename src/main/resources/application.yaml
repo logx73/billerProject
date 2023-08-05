@@ -1,8 +1,8 @@
 spring:
   jpa:
     hibernate:
-      dialect: org.hibernate.dialect.MySQLDialect
-      ddl-auto: update
+      dialect: org.hibernate.dialect.MySQL5Dialect
+      ddl-auto: create
       show_sql: true
       naming:
         physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl

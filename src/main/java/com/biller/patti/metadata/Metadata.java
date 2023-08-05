@@ -9,6 +9,7 @@ import lombok.ToString;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -18,11 +19,13 @@ import java.util.List;
 public class Metadata {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long billId;
+    @SequenceGenerator(name = "EntityTwoSequence", initialValue = 1000)
+    @GeneratedValue(generator = "EntityTwoSequence")
+    private Long metaBillId;
     private Long farmerId;
     private LocalDate lastUpdated;
     private String status;
-    @OneToMany(mappedBy = "metadata", cascade = CascadeType.ALL)
-    private List<Goods> goodsList;
+    @OneToMany(targetEntity = Goods.class,fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+    @JoinColumn(name = "fkid" ,referencedColumnName = "metaBillId")
+    private Set<Goods> goodsList;
 }

@@ -6,7 +6,6 @@ import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
-import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -28,8 +27,5 @@ public class Goods {
     private BigDecimal advanceAmount;
     private String checkNumber;
     private LocalDate purchased;
-    @ManyToOne
-    @JoinColumn(name = "fkBillId")
-    private Metadata metadata;
 
 }
