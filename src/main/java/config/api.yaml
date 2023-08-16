@@ -1,152 +1,121 @@
-openapi: 3.0.3
+openapi: 3.0.1
 info:
-  title: Swagger Biller
-  version: 1.0.11
+  title: OpenAPI definition
+  version: v1.0
 servers:
-  - url: /v3
+  - url: http://localhost:8080
+    description: Generated server url
 tags:
-  - name: shetkari_record
-    description: Everything about shetkari
-  - name: metadata
-    description: Billers Metadata
-  - name: goods_record
-    description: Everything about goods
+  - name: metadata-controller
+    description: APIs For Metadata
+  - name: farmer-controller
+    description: APIs For Farmer
 paths:
-  /saveGoods:
+  /saveMetadata:
     post:
       tags:
-        - goods_record
-      summary: Saves Goods Record
+        - metadata-controller
+      operationId: saveBill
       requestBody:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/GoodRecord'
-          application/xml:
-            schema:
-              $ref: '#/components/schemas/GoodRecord'
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: '#/components/schemas/GoodRecord'
+              $ref: '#/components/schemas/MetadataDto'
+        required: true
       responses:
         '200':
-          description: Successful operation
+          description: OK
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/GoodRecord'
-            application/xml:
+                $ref: '#/components/schemas/MetadataDto'
+  /saveFarmer:
+    post:
+      tags:
+        - farmer-controller
+      operationId: insertFarmer
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FarmerDto'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
               schema:
-                $ref: '#/components/schemas/GoodRecord'
-        '400':
-          description: Invalid ID supplied
-        '404':
-          description: Pet not found
-        '405':
-          description: Validation exception
-  /metadata:
+                $ref: '#/components/schemas/FarmerDto'
+  /getFarmer/{searchParam}:
     get:
       tags:
-        - metadata
-      summary: Get Metadata Record By Id
+        - farmer-controller
+      operationId: getFarmers
       parameters:
-        - name: pattiId
-          in: query
-          description: ID to return
+        - name: searchParam
+          in: path
           required: true
           schema:
-            type: integer
-            format: int64
+            type: string
       responses:
         '200':
-          description: Successful operation
+          description: OK
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/MetaData'
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/MetaData'
-        '400':
-          description: Invalid ID supplied
-        '404':
-          description: Pet not found
-        '405':
-          description: Validation exception
-    post:
-      tags:
-        - metadata
-      summary: Saves metadata Record
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/MetaData'
-          application/xml:
-            schema:
-              $ref: '#/components/schemas/MetaData'
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: '#/components/schemas/MetaData'
-      responses:
-        '200':
-          description: Successful operation
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/MetaData'
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/MetaData'
-        '400':
-          description: Invalid ID supplied
-        '404':
-          description: Pet not found
-        '405':
-          description: Validation exception
+                type: array
+                items:
+                  $ref: '#/components/schemas/FarmerDto'
 components:
   schemas:
-    GoodRecord:
+    GoodsDto:
       type: object
       properties:
-        patti_id:
-          type: integer
-          format: int64
-          example: 10
-        date_of_purchase:
-          type: string
-          format: date
-          example: 17-04-2022
+        price:
+          type: number
+          format: float
         weight:
           type: number
           format: double
         rate:
           type: number
-          format: float
+          format: double
         amount:
           type: number
-          format: double
-        adv_amount:
+        advanceAmount:
           type: number
-          format: double
-        check_no:
-          type: integer
-          format: int64
-        mandatory_deductions:
-          type: integer
-          format: int32
-    MetaData:
+        checkNumber:
+          type: string
+        purchased:
+          type: string
+          format: date
+    MetadataDto:
       type: object
       properties:
-        patti_number:
+        farmerId:
           type: integer
           format: int64
-        shatkari_name:
+        lastUpdated:
           type: string
-        goodsRecord:
+          format: date
+        status:
+          type: string
+        goodsList:
+          uniqueItems: true
           type: array
           items:
-            $ref: '#/components/schemas/GoodRecord'
-        status:
-          type: boolean
-
+            $ref: '#/components/schemas/GoodsDto'
+    FarmerDto:
+      type: object
+      properties:
+        firstName:
+          type: string
+        lastName:
+          type: string
+        mobile:
+          type: string
+        email:
+          type: string
+        address:
+          type: string

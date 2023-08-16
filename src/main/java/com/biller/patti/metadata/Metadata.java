@@ -1,12 +1,12 @@
 package com.biller.patti.metadata;
 
 import com.biller.patti.goods.Goods;
-import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
+import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Set;
@@ -19,8 +19,7 @@ import java.util.Set;
 public class Metadata {
 
     @Id
-    @SequenceGenerator(name = "EntityTwoSequence", initialValue = 1000)
-    @GeneratedValue(generator = "EntityTwoSequence")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long metaBillId;
     private Long farmerId;
     private LocalDate lastUpdated;

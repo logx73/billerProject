@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -99,4 +100,23 @@ public class FarmerDao {
         return null;
     }
 
+    public List<Farmer> getFarmer() {
+        try{
+            List<Farmer> farmerList = farmerRepository.findAll();
+            return farmerList;
+        }catch (Exception ex){
+            System.out.println(ex.getMessage());
+        }
+        return null;
+    }
+
+    public List<Farmer> getFarmerByParam(String keyword){
+        try{
+            List<Farmer> farmerList = farmerRepository.findByKeyword(keyword);
+            return farmerList;
+        }catch(Exception ex){
+            System.out.println(ex.getMessage());
+        }
+        return null;
+    }
 }
