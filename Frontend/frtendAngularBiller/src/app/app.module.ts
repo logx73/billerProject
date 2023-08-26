@@ -6,8 +6,7 @@ import { FarmerListComponent } from './components/farmer-list/farmer-list.compon
 import { HttpClientModule } from '@angular/common/http';
 import { FarmerService } from './services/farmer.service';
 import { PattiComponent } from './components/patti/patti.component';
-import { FormsModule } from '@angular/forms';
-
+import { FormsModule, ReactiveFormsModule, FormArray, Validators } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -18,7 +17,8 @@ import { FormsModule } from '@angular/forms';
   imports: [
     BrowserModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [FarmerService],
   bootstrap: [AppComponent]

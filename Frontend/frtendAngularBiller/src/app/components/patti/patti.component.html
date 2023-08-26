@@ -1,27 +1,78 @@
-<p>patti works!</p>
+<div>
+  <form [formGroup]="form" (ngSubmit)="submitForm()">
+    <!-- <div formArrayName="formArray"> -->
 
+    <table formArrayName="formArray">
+    <div *ngFor="let group of formArray.controls; let i = index" class="form-group" [formGroupName]="i">
+      <tr>  
+        <th colspan="2">Add Patti Information:</th>  
+        <th width="150px"><button type="button" (click)="addFormGroup()" class="btn btn-primary">Add More</button></th>  
+      </tr>
+      <tr>
+        <td>
+          <div class="col">
+            <label for="price">Price</label>
+            <input type="number" class="form-control" id="price" formControlName="price">
+          </div>
+        </td>
+        <td>
+          <div class="col">
+            <label for="weight">Weight</label>
+            <input type="number" class="form-control" id="weight" formControlName="weight">
+          </div>
+        </td>
+        <td>
+          <div class="col">
+            <label for="amount">Amount</label>
+            <input type="number" class="form-control" id="amount" formControlName="amount">
+          </div>
+        </td>
+      </tr>
 
-<form>
-    <div class="form-group">
-      <label for="exampleInputPrice">Price</label>
-      <input type="number" min=0 [(ngModel)]="goodArr.price" name="price" class="form-control" id="exampleInputPrice" placeholder="Enter price">
-    </div>
-    <div class="form-group">
-      <label for="exampleInputWeight">Weight</label>
-      <input type="number" min=0 [(ngModel)]="goodArr.weight" name="weight" class="form-control" id="exampleInputWeight" placeholder="Enter Weight">
-    </div>
-    <div class="form-group">
-        <label for="exampleInputAmount">Amount</label>
-        {{calculate()}}
-    </div>
-    <div class="form-group">
-        <label for="exampleInputAdvAmount">Advance Amount</label>
-        <input type="number" min=0 [(ngModel)]="goodArr.advanceAmount" name="advanceAmount" class="form-control" id="exampleInputAdvAmount" placeholder="Enter Advance Amount">
-    </div>
-    <div class="form-group">
-        <label for="exampleInputCheckNumber"></label>
-        <input type="number" min=0 [(ngModel)]="goodArr.checkNumber" name="checkNumber" class="form-control" id="exampleInputCheckNumber" placeholder="Enter Check Number">
+      <tr>
+        <td>
+          <div class="col">
+            <label for="advanceAmount">Advance Amount</label>
+            <input type="number" class="form-control" id="advanceAmount" formControlName="advanceAmount">
+          </div>
+        </td>
+        <td>
+          <div class="col">
+            <label for="checkNumber">Check Number</label>
+            <input type="number" class="form-control" id="checkNumber" formControlName="checkNumber">
+          </div>
+        </td>
+        <td>
+          <div class="col">
+            <label for="purchaseDate">Purchase Date</label>
+            <input type="date" class="form-control" id="purchaseDate" formControlName="purchaseDate">
+          </div>
+        </td>
+      </tr>
     </div>
 
-    <!-- <button type="submit" class="btn btn-primary">Submit</button> -->
+    </table>
+
+      <!-- <div *ngFor="let group of formArray.controls; let i = index" class="form-group" [formGroupName]="i">
+        <div class="form-row">
+          <div class="col">
+            <label for="price">Price</label>
+            <input type="number" class="form-control" id="price" formControlName="price">
+          </div>
+          <div class="col">
+            <label for="weight">Weight</label>
+            <input type="number" class="form-control" id="weight" formControlName="weight">
+          </div>
+          <div class="col">
+            <label for="amount">Amount</label>
+            <input type="text" class="form-control" id="amount" formControlName="amount">
+          </div>
+        </div>
+      </div>
+
+    </div> -->
+    
+    <button type="button" class="btn btn-primary" (click)="addFormGroup()">Add More</button>
+    <button type="submit" class="btn btn-success">Submit</button>
   </form>
+</div>
