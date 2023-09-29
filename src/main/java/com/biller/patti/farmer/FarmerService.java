@@ -21,4 +21,10 @@ public class FarmerService {
         List<FarmerDto> farmerDtoslist = farmerMapper.farmerlistDTOToFarmerlist(farmerList);
         return farmerDtoslist;
     }
+
+    public FarmerDto saveFarmerRecord(FarmerDto farmerDto){
+        Farmer farmer = farmerMapper.farmerToFarmerDTO(farmerDto);
+        farmerDao.saveFarmer(farmer);
+        return farmerDto;
+    }
 }

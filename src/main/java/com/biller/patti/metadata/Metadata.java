@@ -1,5 +1,6 @@
 package com.biller.patti.metadata;
 
+import com.biller.patti.farmer.Farmer;
 import com.biller.patti.goods.Goods;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
@@ -26,5 +27,5 @@ public class Metadata {
     private String status;
     @OneToMany(targetEntity = Goods.class,fetch = FetchType.LAZY,cascade = CascadeType.ALL)
     @JoinColumn(name = "fkid" ,referencedColumnName = "metaBillId")
-    private Set<Goods> goodsList;
+    private List<Goods> goodsList;
 }

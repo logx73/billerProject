@@ -5,7 +5,7 @@ export class Goods {
     public amount: number,
     public advanceAmount: number,
     public checkNumber: bigint,
-    public purchaseDate: Date
+    public purchased: Date
     ){}
 
 }

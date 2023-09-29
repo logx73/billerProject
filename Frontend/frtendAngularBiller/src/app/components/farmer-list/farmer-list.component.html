@@ -1,3 +1,4 @@
+
 <div class="input-group">
     <div class="form-outline">
       <input type="search" id="form1" class="form-control" placeholder="Search here" #filter/>
@@ -10,10 +11,13 @@
 <!-- <input type="text" placeholder="Filter by city" #filter> -->
 <!-- <button class="primary" type="button" (click)="farmerList(filter.value)">Search</button> -->
 <p *ngFor="let tempfarmer of farmer">
+  <a [routerLink] = "['/patti',tempfarmer.farmerId]">
     {{tempfarmer.farmerId}}
     {{tempfarmer.firstName}}
     {{tempfarmer.lastName}}
     {{tempfarmer.mobile}}
     {{tempfarmer.address}}
+  </a>
 </p>
+
  

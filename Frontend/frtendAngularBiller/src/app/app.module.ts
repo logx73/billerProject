@@ -7,6 +7,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FarmerService } from './services/farmer.service';
 import { PattiComponent } from './components/patti/patti.component';
 import { FormsModule, ReactiveFormsModule, FormArray, Validators } from '@angular/forms';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { FormsModule, ReactiveFormsModule, FormArray, Validators } from '@angula
     BrowserModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AppRoutingModule
   ],
   providers: [FarmerService],
   bootstrap: [AppComponent]

@@ -102,13 +102,15 @@ components:
         status:
           type: string
         goodsList:
-          uniqueItems: true
           type: array
           items:
             $ref: '#/components/schemas/GoodsDto'
     FarmerDto:
       type: object
       properties:
+        farmerId:
+          type: integer
+          format: int64
         firstName:
           type: string
         lastName:
