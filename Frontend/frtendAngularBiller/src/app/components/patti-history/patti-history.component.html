@@ -1,0 +1,28 @@
+<table class="table table-striped">
+    <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Price</th>
+          <th scope="col">Weight</th>
+          <th scope="col">Amount</th>
+          <th scope="col">Advance Amount</th>
+          <th scope="col">Check Number</th>
+          <th scope="col">Purchase Date</th>
+          <th scope="col">Last Updated</th>
+          <th scope="col">Status</th>
+        </tr>
+      </thead>
+      <tbody *ngFor="let row of metadata">
+            <tr *ngFor="let cell of row.goodsList">
+              <th scope="row">1</th>
+              <td scope="row">{{cell.price}}</td>
+              <td scope="row">{{cell.weight}}</td>
+              <td scope="row">{{cell.amount}}</td>
+              <td scope="row">{{cell.advanceAmount}}</td>
+              <td scope="row">{{cell.checkNumber}}</td>
+              <td scope="row">{{cell.purchased}}</td>
+              <td scope="row">{{row.lastUpdated}}</td>
+              <td scope="row">{{row.status}}</td>
+            </tr>
+      </tbody>
+</table>

@@ -67,6 +67,46 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/FarmerDto'
+  /getFarmerById/{farmerId}:
+    get:
+      tags:
+        - farmer-controller
+      operationId: getFarmersById
+      parameters:
+        - name: farmerId
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                  $ref: '#/components/schemas/FarmerDto'
+  /getMetadata/{farmerId}:
+    get:
+      tags:
+        - farmer-controller
+      operationId: getMetadata
+      parameters:
+        - name: farmerId
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/MetadataDto'
 components:
   schemas:
     GoodsDto:

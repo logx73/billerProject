@@ -4,6 +4,8 @@ import { PattiService } from 'src/app/services/patti.service';
 import { FormGroup, FormControl, FormBuilder, FormArray} from '@angular/forms'
 import { Metadata } from 'src/app/common/metadata';
 import { ActivatedRoute } from '@angular/router';
+import { FarmerService } from 'src/app/services/farmer.service';
+import { Farmer } from 'src/app/common/farmer';
 
 @Component({
   selector: 'app-patti',
@@ -13,14 +15,23 @@ import { ActivatedRoute } from '@angular/router';
 export class PattiComponent implements OnInit {
   form!: FormGroup;
   farmerId!: number;
+  farmer: Farmer = new Farmer(0,'','','','','');
 
-  constructor(private fb: FormBuilder, private route:ActivatedRoute, private pattiService:PattiService) { }
+  constructor(private fb: FormBuilder, private route:ActivatedRoute, private pattiService:PattiService
+    , private farmerService:FarmerService) { }
 
   ngOnInit(): void {
     this.farmerId = this.route.snapshot.params['id'];
     this.form = this.fb.group({
       formArray: this.fb.array([this.createFormGroup()])
     });
+    this.farmerService.getFarmerById(this.farmerId).subscribe(
+      data => {
+        this.farmer = data;
+        console.log(this.farmer);
+          // this.farmer = data.filter( record => record?.firstName.toLowerCase().includes(name.toLowerCase()))
+      }
+    )
   }
 
   get formArray(): FormArray {

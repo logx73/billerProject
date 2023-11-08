@@ -14,10 +14,16 @@ export class FarmerService {
   getFarmerList(str: string): Observable<Farmer[]>{
     return this.httpClient.get<Farmer[]>('http://localhost:8080/getFarmer/'+str);
   }
+
+  getFarmerById(id: number): Observable<Farmer>{
+    return this.httpClient.get<Farmer>('http://localhost:8080/getFarmerById/'+id);
+  }
+
+  saveFarmer(farmer: Farmer){
+    const headers = new Headers();
+        headers.append('Content-Type', 'application/json; charset=utf-8');
+        return this.httpClient.post<Farmer>('http://localhost:8080/saveFarmer', farmer);
+  }
+  
 }
 
-interface GetResponse{
-    _embedded: {
-      farmer: Farmer[];
-    }
-}

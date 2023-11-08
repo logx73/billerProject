@@ -1,6 +1,6 @@
 export class Farmer {
     constructor(
-        public farmerId: BigInteger,
+        public farmerId: number,
         public firstName:string,
         public lastName:string,
         public mobile:string,

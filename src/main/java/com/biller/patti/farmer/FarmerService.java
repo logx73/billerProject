@@ -27,4 +27,9 @@ public class FarmerService {
         farmerDao.saveFarmer(farmer);
         return farmerDto;
     }
+
+    public FarmerDto getFarmerId(Long farmerId) {
+        Farmer farmer = farmerDao.getFarmerById(farmerId);
+        return farmerMapper.farmerDTOtoFarmer(farmer);
+    }
 }

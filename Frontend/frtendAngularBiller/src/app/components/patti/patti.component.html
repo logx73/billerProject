@@ -1,79 +1,109 @@
+<div class="p-5 text-center bg-light">
+  <h1 class="mb-3"> Patti Details </h1>
+</div>
 
 <div>
-  <form [formGroup]="form" (ngSubmit)="submitForm()">
-    <!-- <div formArrayName="formArray"> -->
+  <div class="fw-bold">{{farmer.firstName}} {{farmer.lastName}}</div>
+  <div class="text-muted">{{farmer.mobile}}</div>
+  <button type="button" class="btn btn-secondary">History</button>
+</div>
 
-    <table formArrayName="formArray">
-    <div *ngFor="let group of formArray.controls; let i = index" class="form-group" [formGroupName]="i">
-      <tr>  
-        <th colspan="2">Add Patti Information:</th>  
-        <th width="150px"><button type="button" (click)="addFormGroup()" class="btn btn-primary">Add More</button></th>  
-      </tr>
-      <tr>
-        <td>
-          <div class="col">
-            <label for="price">Price</label>
-            <input type="number" class="form-control" id="price" formControlName="price">
-          </div>
-        </td>
-        <td>
-          <div class="col">
-            <label for="weight">Weight</label>
-            <input type="number" class="form-control" id="weight" formControlName="weight">
-          </div>
-        </td>
-        <td>
-          <div class="col">
-            <label for="amount">Amount</label>
-            <input type="number" class="form-control" id="amount" formControlName="amount">
-          </div>
-        </td>
-      </tr>
+<div class="container">
 
-      <tr>
-        <td>
-          <div class="col">
-            <label for="advanceAmount">Advance Amount</label>
-            <input type="number" class="form-control" id="advanceAmount" formControlName="advanceAmount">
-          </div>
-        </td>
-        <td>
-          <div class="col">
-            <label for="checkNumber">Check Number</label>
-            <input type="number" class="form-control" id="checkNumber" formControlName="checkNumber">
-          </div>
-        </td>
-        <td>
-          <div class="col">
-            <label for="purchaseDate">Purchase Date</label>
-            <input type="date" class="form-control" id="purchaseDate" formControlName="purchaseDate">
-          </div>
-        </td>
-      </tr>
-    </div>
-
-    </table>
-
-      <!-- <div *ngFor="let group of formArray.controls; let i = index" class="form-group" [formGroupName]="i">
-        <div class="form-row">
-          <div class="col">
-            <label for="price">Price</label>
-            <input type="number" class="form-control" id="price" formControlName="price">
-          </div>
-          <div class="col">
-            <label for="weight">Weight</label>
-            <input type="number" class="form-control" id="weight" formControlName="weight">
-          </div>
-          <div class="col">
-            <label for="amount">Amount</label>
-            <input type="text" class="form-control" id="amount" formControlName="amount">
-          </div>
-        </div>
-      </div>
-
-    </div> -->
+  <!--Grid row-->
+  <div class="row">
+    <!--Grid column-->
+    <div class="col-lg-5">
+      <form [formGroup]="form" (ngSubmit)="submitForm()">
+        <!-- <div formArrayName="formArray"> -->
     
-    <button type="button" class="btn btn-primary" (click)="addFormGroup()">Add More</button>
-    <button type="submit" class="btn btn-success">Submit</button>
-  </form>
+        <table formArrayName="formArray">
+        <div *ngFor="let group of formArray.controls; let i = index" class="form-group" [formGroupName]="i">
+          <!-- <tr>  
+            <th colspan="2">Add Patti Information:</th>  
+            <th width="150px"><button type="button" (click)="addFormGroup()" class="btn btn-primary">Add More</button></th>  
+          </tr> -->
+          &nbsp;
+          &nbsp;
+          <tr>
+            <td>
+              <div class="col">
+                <label for="price">Price</label>
+                <input type="number" class="form-control" id="price" formControlName="price">
+              </div>
+            </td>
+            <td>
+              <div class="col">
+                <label for="weight">Weight</label>
+                <input type="number" class="form-control" id="weight" formControlName="weight">
+              </div>
+            </td>
+            <td>
+              <div class="col">
+                <label for="amount">Amount</label>
+                <input type="number" class="form-control" id="amount" formControlName="amount">
+              </div>
+            </td>
+          </tr>
+    
+          <tr>
+            <td>
+              <div class="col">
+                <label for="advanceAmount">Advance Amount</label>
+                <input type="number" class="form-control" id="advanceAmount" formControlName="advanceAmount">
+              </div>
+            </td>
+            <td>
+              <div class="col">
+                <label for="checkNumber">Check Number</label>
+                <input type="number" class="form-control" id="checkNumber" formControlName="checkNumber">
+              </div>
+            </td>
+            <td>
+              <div class="col">
+                <label for="purchaseDate">Purchase Date</label>
+                <input type="date" class="form-control" id="purchaseDate" formControlName="purchaseDate">
+              </div>
+            </td>
+          </tr>
+        </div>
+    
+        </table>
+        <br>
+    
+          <!-- <div *ngFor="let group of formArray.controls; let i = index" class="form-group" [formGroupName]="i">
+            <div class="form-row">
+              <div class="col">
+                <label for="price">Price</label>
+                <input type="number" class="form-control" id="price" formControlName="price">
+              </div>
+              <div class="col">
+                <label for="weight">Weight</label>
+                <input type="number" class="form-control" id="weight" formControlName="weight">
+              </div>
+              <div class="col">
+                <label for="amount">Amount</label>
+                <input type="text" class="form-control" id="amount" formControlName="amount">
+              </div>
+            </div>
+          </div>
+    
+        </div> -->
+        
+        <button type="button" class="btn btn-primary" (click)="addFormGroup()">Add More</button>
+        &nbsp;
+        <button type="submit" class="btn btn-success">Submit</button>
+      </form>
+    </div>
+    <!--Grid column-->
+
+    <!--Grid column-->
+    <div class="col-lg-5">
+      <app-patti-history [farmerId]='farmerId'></app-patti-history>
+    </div>
+    <!--Grid column-->
+
+  </div>
+  <!--Grid row-->
+
 </div>
